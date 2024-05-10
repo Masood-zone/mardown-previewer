@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Change the data-theme to "dark" reverse the themes -->
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -13,40 +14,124 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main>
-      <nav class="navbar bg-[#2B2D31] text-white">
-        <!-- Main header -->
-        <div class="flex-1 gap-3">
-          <button class="px-4 bg-[#35393F] h-[50px]">
-            <img src="./assets/icon-menu.svg" class="" />
-          </button>
-          <div class="p-5 border-r-[1px]">
-            <img src="./assets/logo.svg" class="" />
-          </div>
-          <div class="flex items-center px-2 gap-4 justify-start">
-            <img
-              src="./assets/icon-document.svg"
-              class="w-[13.71px] h-[16px]"
-            />
-            <div class="flex flex-col">
-              <p class="text-[#7C8187] font-light text-[13px]">Document Name</p>
-              <p class="text-white text-[15px]">welcome.md</p>
+    <main class="">
+      <!-- Container for sidebar and main content -->
+      <div class="relative flex items-start justify-start">
+        <!-- Sidebar -->
+        <div
+          id="sidebar"
+          class="w-[250px] bg-[#1D1F22] text-white h-screen flex flex-col transition-transform duration-300 ease-in-out transform translate-x-[-100%]"
+        >
+          <!-- Sidebar content goes here -->
+          <div class="flex-1">
+            <div class="flex items-center gap-3 p-5">
+              <!-- Sidebar header -->
+              <span class="text-[#7C8187] font-medium uppercase text-[14px]">
+                My Documents
+              </span>
+            </div>
+            <div class="flex flex-col gap-3 p-2">
+              <button
+                class="bg-[#E46643] flex justify-center items-center text-white btn border-none rounded mx-3"
+              >
+                <span class="font-normal text-[15px]">+ New Document</span>
+              </button>
+              <!-- Document names 1 -->
+              <div class="flex gap-4 items-center mt-3">
+                <img
+                  src="./assets/icon-document.svg"
+                  class="w-[13.71px] h-[16px]"
+                />
+                <div class="flex flex-col">
+                  <p class="text-[#7C8187] font-light text-[13px]">
+                    01 April 2022
+                  </p>
+                  <p class="text-white text-[15px]">untitled-document.md</p>
+                </div>
+              </div>
+              <!-- Document names 2 -->
+              <div class="flex gap-4 items-center my-2">
+                <img
+                  src="./assets/icon-document.svg"
+                  class="w-[13.71px] h-[16px]"
+                />
+                <div class="flex flex-col">
+                  <p class="text-[#7C8187] font-light text-[13px]">
+                    01 April 2022
+                  </p>
+                  <p class="text-white text-[15px]">welcome.md</p>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- Theme toggle -->
+          <div class="flex-none h-12 w-full px-4">
+            <label class="flex h-[24px] w-[104px] cursor-pointer gap-2">
+              <img src="./assets/icon-dark-mode.svg" class="" />
+              <input
+                type="checkbox"
+                value="light"
+                class="toggle theme-controller"
+              />
+              <img src="./assets/icon-light-mode.svg" class="text-white" />
+            </label>
+          </div>
         </div>
-        <!-- Buttons -->
-        <div class="flex-none gap-3">
-          <button class="w-[18px] h-[20px]">
-            <img src="./assets/icon-delete.svg" class="" />
-          </button>
-          <button
-            class="bg-[#E46643] flex items-center text-white btn border-none"
-          >
-            <img src="./assets/icon-save.svg" class="w-[16px] h-[16px]" />
-            <span class="font-normal text-[15px]">Save Changes</span>
-          </button>
+        <!-- Main content -->
+        <div class="flex flex-col w-full h-full main-content">
+          <!-- Navigation -->
+          <nav class="navbar bg-[#2B2D31] text-white">
+            <!-- Main header -->
+            <div class="flex-1 gap-3">
+              <button class="px-4 bg-[#35393F] h-[50px] relative">
+                <!-- Open menu button -->
+                <img src="./assets/icon-menu.svg" class="" id="openButton" />
+                <!-- Close menu button -->
+                <img
+                  src="./assets/icon-close.svg"
+                  class="hidden"
+                  id="closeButton"
+                />
+              </button>
+              <div class="p-5 border-r-[1px]">
+                <img src="./assets/logo.svg" class="" />
+              </div>
+              <div class="flex items-center px-2 gap-4 justify-start">
+                <img
+                  src="./assets/icon-document.svg"
+                  class="w-[13.71px] h-[16px]"
+                />
+                <div class="flex flex-col">
+                  <p class="text-[#7C8187] font-light text-[13px]">
+                    Document Name
+                  </p>
+                  <p class="text-white text-[15px]">welcome.md</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex-none gap-3">
+              <button class="w-[18px] h-[20px]">
+                <img src="./assets/icon-delete.svg" class="" />
+              </button>
+              <button
+                class="bg-[#E46643] flex items-center text-white btn border-none"
+              >
+                <img src="./assets/icon-save.svg" class="w-[16px] h-[16px]" />
+                <span class="font-normal text-[15px]">Save Changes</span>
+              </button>
+            </div>
+          </nav>
+          <!-- Markdown Content Here -->
+          <section class="flex">
+            <!-- Preview -->
+            <div>Preview</div>
+            <!-- Editor -->
+            <div>Editor</div>
+          </section>
         </div>
-      </nav>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
