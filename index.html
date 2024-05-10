@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Previewer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <nav class="navbar bg-[#2B2D31] text-white">
+        <!-- Main header -->
+        <div class="flex-1 gap-3">
+          <button class="px-4 bg-[#35393F] h-[50px]">
+            <img src="./assets/icon-menu.svg" class="" />
+          </button>
+          <div class="p-5 border-r-[1px]">
+            <img src="./assets/logo.svg" class="" />
+          </div>
+          <div class="flex items-center px-2 gap-4 justify-start">
+            <img
+              src="./assets/icon-document.svg"
+              class="w-[13.71px] h-[16px]"
+            />
+            <div class="flex flex-col">
+              <p class="text-[#7C8187] font-light text-[13px]">Document Name</p>
+              <p class="text-white text-[15px]">welcome.md</p>
+            </div>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="flex-none gap-3">
+          <button class="w-[18px] h-[20px]">
+            <img src="./assets/icon-delete.svg" class="" />
+          </button>
+          <button
+            class="bg-[#E46643] flex items-center text-white btn border-none"
+          >
+            <img src="./assets/icon-save.svg" class="w-[16px] h-[16px]" />
+            <span class="font-normal text-[15px]">Save Changes</span>
+          </button>
+        </div>
+      </nav>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
