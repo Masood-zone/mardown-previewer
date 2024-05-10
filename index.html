@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Change the data-theme to "dark" reverse the themes -->
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,17 +16,21 @@
   <body>
     <main class="">
       <!-- Container for sidebar and main content -->
-      <div class="relative flex items-start justify-start">
+      <div
+        class="relative w-full h-full flex items-start justify-start overflow-hidden"
+      >
         <!-- Sidebar -->
         <div
           id="sidebar"
-          class="w-[250px] bg-[#1D1F22] text-white h-screen flex flex-col transition-transform duration-300 ease-in-out transform translate-x-[-100%]"
+          class="w-[250px] bg-[#1D1F22] text-white h-screen flex flex-col transition-transform duration-300 ease-in-out transform translate-x-[-100%] theme-switchable"
         >
           <!-- Sidebar content goes here -->
           <div class="flex-1">
             <div class="flex items-center gap-3 p-5">
               <!-- Sidebar header -->
-              <span class="text-[#7C8187] font-medium uppercase text-[14px]">
+              <span
+                class="text-[#7C8187] theme-switchable font-medium uppercase text-[14px]"
+              >
                 My Documents
               </span>
             </div>
@@ -43,7 +47,9 @@
                   class="w-[13.71px] h-[16px]"
                 />
                 <div class="flex flex-col">
-                  <p class="text-[#7C8187] font-light text-[13px]">
+                  <p
+                    class="text-[#7C8187] theme-switchable font-light text-[13px]"
+                  >
                     01 April 2022
                   </p>
                   <p class="text-white text-[15px]">untitled-document.md</p>
@@ -101,7 +107,7 @@
                   src="./assets/icon-document.svg"
                   class="w-[13.71px] h-[16px]"
                 />
-                <div class="flex flex-col">
+                <div class="flex flex-col text-white">
                   <p class="text-[#7C8187] font-light text-[13px]">
                     Document Name
                   </p>
@@ -112,9 +118,31 @@
 
             <!-- Buttons -->
             <div class="flex-none gap-3">
-              <button class="w-[18px] h-[20px]">
+              <!-- Delete button -->
+              <button
+                class="w-[18px] h-[20px]"
+                onclick="my_modal_1.showModal()"
+              >
                 <img src="./assets/icon-delete.svg" class="" />
               </button>
+              <dialog id="my_modal_1" class="modal">
+                <div class="modal-box rounded-none text-black w-[343px] h-auto">
+                  <h3 class="font-bold text-[20px]">Delete this document?</h3>
+                  <p class="py-3 text-[14px] text-[#7C8187]">
+                    Are you sure you want to delete the ‘welcome.md’ document
+                    and its contents? This action cannot be reversed.
+                  </p>
+                  <div class="modal-action mt-0">
+                    <form method="dialog" class="w-full">
+                      <button
+                        class="bg-[#E46643] font-normal text-[15px] w-full flex items-center text-white btn border-none"
+                      >
+                        Confirm & Delete
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
               <button
                 class="bg-[#E46643] flex items-center text-white btn border-none"
               >
@@ -124,11 +152,217 @@
             </div>
           </nav>
           <!-- Markdown Content Here -->
-          <section class="flex">
-            <!-- Preview -->
-            <div>Preview</div>
-            <!-- Editor -->
-            <div>Editor</div>
+          <section class="flex flex-col overflow-y-auto">
+            <!-- Preview and Markdown sections-->
+            <section class="flex overflow-hidden">
+              <!-- Markdown -->
+              <div
+                id="previewContainer"
+                class="w-full h-full markdown-container border-r-2 border-r-[#7C8187]"
+              >
+                <div
+                  class="uppercase font-medium text-[14px] text-[#7C8187] bg-[#F5F5F5] dark:bg-[#1D1F22] dark:text-[#C1C4CB] font-roboto p-2"
+                >
+                  Markdown
+                </div>
+                <div class="p-2">
+                  <h1 class="py-5">Welcome to Markdown</h1>
+
+                  <p class="py-5">
+                    Markdown is a lightweight markup language that you can use
+                    to add formatting elements to plaintext text documents.
+                  </p>
+
+                  <h2 class="py-5">## How to use this?</h2>
+
+                  <ul class="py-5">
+                    <li>1. Write markdown in the markdown editor window</li>
+                    <li>2. See the rendered markdown in the preview window</li>
+                  </ul>
+
+                  <h3 class="py-5">### Features</h3>
+
+                  <ul class="py-5">
+                    <li>
+                      - Create headings, paragraphs, links, blockquotes,
+                      inline-code, code blocks, and lists
+                    </li>
+                    <li>- Name and save the document to access again later</li>
+                    <li>
+                      - Choose between Light or Dark mode depending on your
+                      preference
+                    </li>
+                  </ul>
+
+                  <blockquote class="py-5">
+                    <p>
+                      > This is an example of a blockquote. If you would like to
+                      learn more about markdown syntax, you can visit this
+                      <a href="https://www.markdownguide.org/cheat-sheet/"
+                        >markdown cheatsheet</a
+                      >.
+                    </p>
+                  </blockquote>
+
+                  <h4 class="py-5">#### Headings</h4>
+
+                  <p class="py-5">
+                    To create a heading, add the hash sign (#) before the
+                    heading. The number of number signs you use should
+                    correspond to the heading level. You'll see in this guide
+                    that we've used all six heading levels (not necessarily in
+                    the correct way you should use headings!) to illustrate how
+                    they should look.
+                  </p>
+
+                  <h5 class="py-5">#### Lists</h5>
+
+                  <p class="py-5">
+                    You can see examples of ordered and unordered lists above.
+                  </p>
+
+                  <h6 class="py-5">##### Code Blocks</h6>
+
+                  <p class="py-5">
+                    This markdown editor allows for inline-code snippets, like
+                    this:
+                    <code>&lt;p&gt;I'm inline&lt;/p&gt;</code>. It also allows
+                    for larger code blocks like this:
+                  </p>
+
+                  <pre>
+````
+<code class="code">&lt;main&gt;
+&lt;h1&gt;This is a larger code block&lt;/h1&gt;
+&lt;/main&gt;
+````
+</code>
+                </pre>
+                </div>
+              </div>
+              <!-- Preview -->
+              <div class="w-full h-full">
+                <div
+                  class="uppercase font-medium text-[14px] text-[#7C8187] flex justify-between font-roboto p-2 bg-[#F5F5F5] dark:bg-[#1D1F22] dark:text-[#C1C4CB]"
+                >
+                  <span> Preview </span>
+                  <button class="flex items-center">
+                    <img
+                      src="./assets/icon-show-preview.svg"
+                      alt="preview"
+                      id="showPreview"
+                    />
+                    <img
+                      src="./assets/icon-hide-preview.svg"
+                      alt=""
+                      id="hidePreview"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="w-[672px] h-full mx-auto max-lg:w-full items-start flex flex-col preview-container px-3"
+                >
+                  <h1 class="my-3 text-[32px] text-[#35393F] font-bold">
+                    Welcome to Markdown
+                  </h1>
+
+                  <p class="my-3 text-[14px] text-[#7C8187]">
+                    Markdown is a lightweight markup language that you can use
+                    to add formatting elements to plaintext text documents.
+                  </p>
+
+                  <h2 class="my-3 text-[#35393F] font-light text-[32px]">
+                    How to use this?
+                  </h2>
+
+                  <ul class="my-3 ml-5">
+                    <li class="text-[14px] py-1 text-[#7C8187]">
+                      1. Write markdown in the markdown editor window
+                    </li>
+                    <li class="text-[14px] py-1 text-[#7C8187]">
+                      2. See the rendered markdown in the preview window
+                    </li>
+                  </ul>
+
+                  <h3 class="my-3 text-[32px] text-[#35393F] font-bold">
+                    Features
+                  </h3>
+
+                  <ul class="my-3 list-disc ml-5">
+                    <li class="text-[14px] py-1 text-[#7C8187]">
+                      Create headings, paragraphs, links, blockquotes,
+                      inline-code, code blocks, and lists
+                    </li>
+                    <li class="text-[14px] py-1 text-[#7C8187]">
+                      Name and save the document to access again later
+                    </li>
+                    <li class="text-[14px] py-1 text-[#7C8187]">
+                      Choose between Light or Dark mode depending on your
+                      preference
+                    </li>
+                  </ul>
+
+                  <blockquote
+                    class="my-3 p-5 rounded-md bg-[#F5F5F5] border-l-4 border-l-[#E46643] dark:bg-[#2B2D31]"
+                  >
+                    <p
+                      class="font-bold text-[14px] text-[#35393F] dark:text-[#fff]"
+                    >
+                      This is an example of a blockquote. If you would like to
+                      learn more about markdown syntax, you can visit this
+                      <a
+                        href="https://www.markdownguide.org/cheat-sheet/"
+                        target="_blank"
+                        class="underline"
+                        >markdown cheatsheet</a
+                      >.
+                    </p>
+                  </blockquote>
+
+                  <h4 class="my-3 text-[#35393F] font-bold text-[20px]">
+                    Headings
+                  </h4>
+
+                  <p class="my-3 text-[14px] text-[#7C8187]">
+                    To create a heading, add the hash sign (#) before the
+                    heading. The number of number signs you use should
+                    correspond to the heading level. You'll see in this guide
+                    that we've used all six heading levels (not necessarily in
+                    the correct way you should use headings!) to illustrate how
+                    they should look.
+                  </p>
+
+                  <h5 class="my-3 font-bold text-[#35393F] text-[16px]">
+                    Lists
+                  </h5>
+
+                  <p class="my-3 text-[14px] text-[#7C8187]">
+                    You can see examples of ordered and unordered lists above.
+                  </p>
+
+                  <h6 class="my-3 font-bold text-[14px] text-[#E46643]">
+                    Code Blocks
+                  </h6>
+
+                  <p class="my-3 text-[14px] text-[#7C8187]">
+                    This markdown editor allows for inline-code snippets, like
+                    this:
+                    <code class="text-[#35393F]"
+                      >&lt;p&gt;I'm inline&lt;/p&gt;</code
+                    >. It also allows for larger code blocks like this:
+                  </p>
+
+                  <pre
+                    class="mt-8 w-full p-5 bg-[#F5F5F5] rounded-md text-[#35393F] dark:bg-[#2B2D31] dark:text-[#fff] font-mono"
+                  >
+&lt;main&gt;
+&lt;h1&gt;This is a larger code block&lt;/h1&gt;
+&lt;/main&gt;
+</pre
+                  >
+                </div>
+              </div>
+            </section>
           </section>
         </div>
       </div>

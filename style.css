@@ -19,8 +19,28 @@ h6 {
 p {
   margin: 0;
 }
-pre {
+/* Font for some elements  */
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+.font-mono {
   font-family: "Roboto Mono", monospace;
-  font-size: 0.9em;
+}
+/* Preview container font */
+.preview-container {
+  font-family: "Roboto Slab", serif;
+}
+/* List style type disc color */
+ul.list-disc li::marker {
+  color: #e46643;
+}
+/* Markdown container font */
+.markdown-container {
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
   margin: 0;
+}
+/* <code>...</code> font */
+.code {
+  font-family: "Roboto Mono", monospace;
 }
