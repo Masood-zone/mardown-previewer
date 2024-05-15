@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   openButton.addEventListener("click", function () {
     sidebar.style.transform = "translateX(0)";
+    sidebar.style.display = "block"; // Show the sidebar
     openButton.classList.add("hidden");
     closeButton.classList.remove("hidden");
   });
 
   closeButton.addEventListener("click", function () {
     sidebar.style.transform = "translateX(-100%)";
+    sidebar.style.display = "none"; // Hide the sidebar
     closeButton.classList.add("hidden");
     openButton.classList.remove("hidden");
   });
