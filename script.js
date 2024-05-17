@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   openButton.addEventListener("click", function () {
     sidebar.style.transform = "translateX(0)";
+    sidebar.style.display = "block"; // Show the sidebar
     openButton.classList.add("hidden");
     closeButton.classList.remove("hidden");
   });
 
   closeButton.addEventListener("click", function () {
     sidebar.style.transform = "translateX(-100%)";
+    sidebar.style.display = "none"; // Hide the sidebar
     closeButton.classList.add("hidden");
     openButton.classList.remove("hidden");
   });
@@ -42,4 +44,32 @@ document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.getAttribute("data-theme") === "dark"
     );
   });
+});
+
+// Markdown toggle function
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the preview container and the buttons
+  const previewContainer = document.querySelector("#markdown-container");
+  const showPreviewButton = document.getElementById("showPreview");
+  const hidePreviewButton = document.getElementById("hidePreview");
+
+  // Function to toggle the preview container and the buttons
+  function togglePreview() {
+    // Toggle the preview container
+    previewContainer.style.display =
+      previewContainer.style.display === "none" ? "block" : "none";
+
+    // Toggle the visibility of the buttons
+    showPreviewButton.style.display =
+      hidePreviewButton.style.display === "none" ? "inline-block" : "none";
+    hidePreviewButton.style.display =
+      showPreviewButton.style.display === "none" ? "inline-block" : "none";
+  }
+
+  // Attach event listeners to the buttons
+  showPreviewButton.addEventListener("click", togglePreview);
+  hidePreviewButton.addEventListener("click", togglePreview);
+
+  // Optionally, you can also toggle the preview and the buttons when the page loads
+  togglePreview();
 });

@@ -22,10 +22,10 @@
         <!-- Sidebar -->
         <div
           id="sidebar"
-          class="w-[250px] bg-[#1D1F22] text-white h-screen flex flex-col transition-transform duration-300 ease-in-out transform translate-x-[-100%] theme-switchable"
+          class="w-[250px] hidden bg-[#1D1F22] text-white h-screen flex flex-col justify-between transition-transform duration-300 ease-in-out transform translate-x-[-100%] theme-switchable"
         >
           <!-- Sidebar content goes here -->
-          <div class="flex-1">
+          <div class="">
             <div class="flex items-center gap-3 p-5">
               <!-- Sidebar header -->
               <span
@@ -71,7 +71,7 @@
             </div>
           </div>
           <!-- Theme toggle -->
-          <div class="flex-none h-12 w-full px-4">
+          <div class="h-12 w-full px-4">
             <label class="flex h-[24px] w-[104px] cursor-pointer gap-2">
               <img src="./assets/icon-dark-mode.svg" class="" />
               <input
@@ -157,7 +157,7 @@
             <section class="flex overflow-hidden">
               <!-- Markdown -->
               <div
-                id="previewContainer"
+                id="markdown-container"
                 class="w-full h-full markdown-container border-r-2 border-r-[#7C8187]"
               >
                 <div
